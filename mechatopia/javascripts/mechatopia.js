@@ -1,15 +1,23 @@
 var game = new Phaser.Game('100', '100', Phaser.AUTO, 'Mechatopia', { preload: preload, create: create, update: update });
 
+var title;
+
+function resize(scale, parentBounds) {
+  if(title) {
+    title.height = parentBounds.height;
+    title.width = parentBounds.width;
+  }
+}
+
 function preload() {
+  game.scale.scaleMode = Phaser.ScaleManager.RESIZE
+  game.scale.setResizeCallback(resize);
+
   game.load.image('title', 'images/title.png');
 }
 
 function create() {
-  var sprite;
-
-  sprite = game.add.sprite(0, 0, 'title');
-  sprite.height = game.world.height;
-  sprite.width = game.world.width;
+  title = game.add.sprite(0, 0, 'title');
 }
 
 function update() {
