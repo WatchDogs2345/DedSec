@@ -3,9 +3,13 @@ var game = new Phaser.Game('100', '100', Phaser.AUTO, 'Mechatopia', { preload: p
 var title;
 
 function resize(scale, parentBounds) {
+  titleResize(parentBounds.height, parentBounds.width);
+}
+
+function titleResize(height, width) {
   if(title) {
-    title.height = parentBounds.height;
-    title.width = parentBounds.width;
+    title.height = height;
+    title.width = width;
   }
 }
 
@@ -18,6 +22,7 @@ function preload() {
 
 function create() {
   title = game.add.sprite(0, 0, 'title');
+  titleResize(game.world.height, game.world.width);
 }
 
 function update() {
