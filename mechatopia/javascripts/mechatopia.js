@@ -49,7 +49,7 @@ function preload() {
   game.scale.setResizeCallback(resize);
 
   game.load.image('title', 'images/title.png');
-  game.load.spritesheet('button_start', 'images/button_start_sprite_sheet.png', 193, 71);
+  game.load.spritesheet('button_start', 'images/button_start_sprite_sheet.png', 145, 100);
 }
 
 function create() {
